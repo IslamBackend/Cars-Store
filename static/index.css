@@ -1,0 +1,8 @@
+body {
+    background: url("https://cdn.pixabay.com/photo/2023/05/08/19/29/dark-7979575_1280.jpg");
+    font-family: 'Brush Script MT, Brush Script Std, cursive';
+
+}
+.pagination.pagination-sm{
+    margin: 100px 50px 50px 175px;
+}

@@ -1,0 +1,29 @@
+{% extends 'layouts/index.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "posts.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="posts">
+        {% for post in posts %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <div class="image">
+                        {% if post.image %}
+                            <img src="/media/{{ post.image }}/" alt="" width="355" height="255">
+                        {% else %}
+                            <img src="{% static 'errors.png' %}" alt="">
+                        {% endif %}
+                    </div>
+                    <h4 class="card-title">{{ post.title }}</h4>
+                    <h4 class="card-title">Цена: {{ post.price }} USD</h4>
+                    <h5 class="card-subtitle mb-2 text-body-secondary">Оценка: {{ post.rate }}</h5>
+                    <h5><a href="/posts/{{ post.id }}" class="card-link">More</a></h5>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

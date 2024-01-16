@@ -1,0 +1,57 @@
+.post_block {
+    width: 80%;
+    margin-left: 10%;
+    padding: 10px;
+
+}
+
+.fon {
+    margin: 50px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+
+.dates {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comments {
+    margin-top: 30%;
+}
+
+.comment_block {
+    background: #242b2e;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.image > img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.info {
+    text-align: justify;
+}
+
+.create_comment {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #91acd3;
+}
+
+.vid {
+    border-radius: 10px;
+}
+
+.info_text {
+    background-color: #b5c2dc;
+    padding: 10px;
+    border-radius: 10px;
+    text-indent: 50px;
+}

@@ -1,0 +1,54 @@
+{% extends 'layouts/index.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "detail.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="fon">
+        <a href="/posts/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Назад</a>
+        <div class="post_block">
+            <div class="image">
+                {% if post.image %}
+                    <img src="/media/{{ post.image }}/" alt="">
+                {% else %}
+                    <img src="{% static 'img.png' %}" alt="" width="255" height="255">
+                {% endif %}
+            </div>
+            <div class="info">
+                    <h1>{{ post.title }}</h1><br>
+                    <h2>{{ post.price }} USD</h2><br>
+                    <div class="info_text">
+                        <h4>{{ post.description }}</h4><br>
+                    </div><br>
+                    <h3>Оценка: {{ post.rate }}</h3><br><br>
+                    <div class="dates">
+                        <p>Дата создания: {{ post.created_date }}</p>
+                        <p>Дата обновления: {{ post.modified_date }}</p><br><br>
+                    </div>
+                    <br><br>
+                    <iframe src="{{ post.url }}" frameborder="0" class="vid"></iframe>
+                    <br><br>
+                    <br><br>
+                    {% if not user.is_anonymous %}
+                        <div class="create_comment">
+                            <form action="/posts/{{ post.id }}/" method="post">
+                                {% csrf_token %}
+                                {{ form }}
+                                <input type="submit" value="Добавить комментарии">
+                            </form>
+                        </div>
+                    {% endif %}
+
+                    <div class="comments">
+                        {% for comment in comments %}
+                            <div class="comment_block">
+                                <h5>{{ comment.text }}</h5>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
